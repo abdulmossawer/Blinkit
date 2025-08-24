@@ -7,7 +7,7 @@ SELECT * FROM blinkit_data;
 -- Total Sales
 CREATE VIEW Total_Sales AS
 SELECT
-	CAST(SUM(Total_Sales) AS DECIMAL(10, 2) ) AS Total_Sales
+	CAST(SUM(Total_Sales) / 1000000 AS DECIMAL(10, 2) ) AS Total_Sales_Millions
 FROM blinkit_data;
 
 -- Average Sales
