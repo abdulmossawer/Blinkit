@@ -1,5 +1,3 @@
--- Questions
-
 SELECT * FROM blinkit_data;
 
 -- KPI’s Requirements
@@ -79,3 +77,34 @@ SELECT
 FROM blinkit_data
 GROUP BY Outlet_Establishment_Year;
 
+
+-- Chart’s Requirements
+
+-- Percentage of Sales by Outlet Size
+CREATE VIEW Percentage_of_Sales_by_Outlet_Size AS
+SELECT
+	Outlet_Size,
+	CAST(SUM(Total_Sales) AS DECIMAL(10,2)) AS Total_Sales,
+	CAST((SUM(Total_Sales) * 100.0 / SUM(SUM(Total_Sales)) OVER())
+	AS DECIMAL(10,2)) AS Sales_Percentage
+FROM blinkit_data
+GROUP BY Outlet_Size;
+
+-- Sales by Outlet Location
+CREATE VIEW Sales_by_Outlet_Location AS 
+SELECT 
+	Outlet_Location_Type,
+	CAST(SUM(Total_Sales) AS DECIMAL(10,2)) AS Total_Sales
+FROM blinkit_data
+GROUP BY Outlet_Location_Type;
+
+-- All Metrics by Outlet Type:
+CREATE VIEW All_Metrics_by_Outlet_Type AS
+SELECT Outlet_Type, 
+CAST(SUM(Total_Sales) AS DECIMAL(10,2)) AS Total_Sales,
+		CAST(AVG(Total_Sales) AS DECIMAL(10,0)) AS Avg_Sales,
+		COUNT(*) AS No_Of_Items,
+		CAST(AVG(Rating) AS DECIMAL(10,2)) AS Avg_Rating,
+		CAST(AVG(Item_Visibility) AS DECIMAL(10,2)) AS Item_Visibility
+FROM blinkit_data
+GROUP BY Outlet_Type;

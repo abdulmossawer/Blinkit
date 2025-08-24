@@ -33,3 +33,19 @@ ORDER BY Outlet_Location_Type;
 -- Total Sales by Outlet Establishment
 SELECT * FROM Total_Sales_by_Outlet_Establishment
 ORDER BY Outlet_Establishment_Year;
+
+
+
+-- Chart’s Requirements
+
+-- Percentage of Sales by Outlet Size
+SELECT * FROM Percentage_of_Sales_by_Outlet_Size
+ORDER BY Total_Sales DESC;
+
+-- Sales by Outlet Location
+SELECT * FROM Sales_by_Outlet_Location
+ORDER BY Total_Sales DESC;
+
+-- All Metrics by Outlet Type:
+SELECT * FROM All_Metrics_by_Outlet_Type
+ORDER BY Total_Sales DESC;
