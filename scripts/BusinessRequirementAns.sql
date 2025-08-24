@@ -16,3 +16,17 @@ SELECT * FROM No_Of_Orders;
 -- Average Rating
 SELECT * FROM Avg_Rating;
 
+
+-- Granular Requirements
+
+--Total Sales by Fat Content
+SELECT * FROM Total_Sales_by_Fat_Content;
+
+-- Total Sales by Item Type
+SELECT * FROM Total_Sales_by_Item_Type;
+
+-- Fat Content by Outlet for Total Sales
+SELECT * FROM Fat_Content_by_Outlet_for_Total_Sales;
+
+-- Total Sales by Outlet Establishment
+SELECT * FROM Total_Sales_by_Outlet_Establishment;
